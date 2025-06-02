@@ -5,9 +5,24 @@
     },
     "api/real-breach-osint.js": {
       "maxDuration": 180
+    },
+    "api/evolved-strategic-osint.js": {
+      "maxDuration": 300
     }
   },
   "routes": [
+    {
+      "src": "/evolved",
+      "dest": "/api/evolved-strategic-osint"
+    },
+    {
+      "src": "/evolved-strategic",
+      "dest": "/api/evolved-strategic-osint"
+    },
+    {
+      "src": "/api/evolved",
+      "dest": "/api/evolved-strategic-osint"
+    },
     {
       "src": "/real",
       "dest": "/api/real-breach-osint"
