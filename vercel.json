@@ -7,15 +7,15 @@
   "routes": [
     {
       "src": "/generation3",
-      "dest": "/api/index.js?generation=3"
+      "dest": "/api?generation=3"
     },
     {
       "src": "/generation6", 
-      "dest": "/api/index.js?generation=6"
+      "dest": "/api?generation=6"
     },
     {
       "src": "/generation9",
-      "dest": "/api/index.js?generation=9"
+      "dest": "/api?generation=9"
     }
   ]
 }
