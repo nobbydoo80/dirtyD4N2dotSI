@@ -3,22 +3,22 @@
     "api/index.js": {
       "maxDuration": 60
     },
-    "api/real-strategic-osint.js": {
+    "api/real-simple.js": {
       "maxDuration": 120
     }
   },
   "routes": [
     {
       "src": "/real",
-      "dest": "/api/real-strategic-osint"
+      "dest": "/api/real-simple"
     },
     {
       "src": "/real-osint",
-      "dest": "/api/real-strategic-osint"
+      "dest": "/api/real-simple"
     },
     {
       "src": "/api/real",
-      "dest": "/api/real-strategic-osint"
+      "dest": "/api/real-simple"
     },
     {
       "src": "/generation3",
