@@ -1,5 +1,5 @@
 {
-  "name": "dirtyd4n2dotsi",
+  "name": "strategic-intelligence-si",
   "version": "1.0.0",
   "description": "Strategic Intelligence System - Advanced OSINT with Dynamic Password Analysis",
   "main": "api/strategic-osint.js",
