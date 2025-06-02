@@ -1,0 +1,27 @@
+{
+  "name": "dirtyd4n2dotsi",
+  "version": "1.0.0",
+  "description": "Strategic Intelligence System - Advanced OSINT with Dynamic Password Analysis",
+  "main": "api/strategic-osint.js",
+  "type": "module",
+  "scripts": {
+    "start": "node api/strategic-osint.js",
+    "test": "node test/strategic-analysis.js",
+    "analyze": "node engines/password-analyzer.js",
+    "intelligence": "node engines/strategic-scorer.js",
+    "serve": "node -e \"import('./api/strategic-osint.js').then(m => { const http = require('http'); const server = http.createServer((req, res) => { if (req.url.startsWith('/api/strategic-osint')) { const url = new URL(req.url, 'http://localhost'); req.query = Object.fromEntries(url.searchParams); m.default(req, res); } else { res.writeHead(404); res.end('Not Found'); } }); server.listen(3000, () => console.log('Server running on http://localhost:3000')); });\""
+  },
+  "dependencies": {
+    "crypto": "latest",
+    "node-fetch": "^3.3.2"
+  },
+  "keywords": [
+    "osint",
+    "intelligence",
+    "password-analysis",
+    "breach-data",
+    "strategic-analysis"
+  ],
+  "author": "Strategic Intelligence Team",
+  "license": "MIT"
+}

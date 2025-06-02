@@ -1,0 +1,27 @@
+{
+  "functions": {
+    "api/strategic-osint.js": {
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/strategic-osint",
+      "dest": "/api/strategic-osint.js"
+    },
+    {
+      "src": "/generation3",
+      "dest": "/api/strategic-osint.js?generation=3"
+    },
+    {
+      "src": "/generation6", 
+      "dest": "/api/strategic-osint.js?generation=6"
+    },
+    {
+      "src": "/generation9",
+      "dest": "/api/strategic-osint.js?generation=9"
+    }
+  ],
+  "buildCommand": "echo 'No build needed'",
+  "outputDirectory": "."
+}
