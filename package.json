@@ -9,11 +9,15 @@
     "test": "node test/strategic-analysis.js",
     "analyze": "node engines/password-analyzer.js",
     "intelligence": "node engines/strategic-scorer.js",
-    "serve": "node -e \"import('./api/strategic-osint.js').then(m => { const http = require('http'); const server = http.createServer((req, res) => { if (req.url.startsWith('/api/strategic-osint')) { const url = new URL(req.url, 'http://localhost'); req.query = Object.fromEntries(url.searchParams); m.default(req, res); } else { res.writeHead(404); res.end('Not Found'); } }); server.listen(3000, () => console.log('Server running on http://localhost:3000')); });\""
+    "build": "echo 'No build step required'",
+    "deploy": "vercel --prod",
+    "dev": "vercel dev"
   },
   "dependencies": {
-    "crypto": "latest",
     "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [
     "osint",

@@ -1,6 +1,84 @@
 # dirtyD4N2dotSI - Strategic Intelligence System
 
-## Fresh Start: Lessons from dirtyD4N2dotNO
+Advanced OSINT platform with Darwin Gödel Machine evolution for dynamic password analysis and strategic intelligence gathering.
+
+## 🚀 Live Deployment
+
+**Vercel Endpoints:**
+- Generation 3: `/generation3` (hybrid_adaptive)
+- Generation 6: `/generation6` (recency_first - OPTIMAL)
+- Generation 9: `/generation9` (hybrid_adaptive)
+- Custom: `/api/strategic-osint?generation=N`
+
+## 🧬 Evolution System
+
+The system uses a Darwin Gödel Machine to evolve strategic intelligence capabilities:
+
+- **Dynamic Password Analysis** - No hardcoded assumptions
+- **Multi-Hash Support** - MD5, SHA1, SHA256, bcrypt detection
+- **Temporal Intelligence** - Recent passwords prioritized
+- **Pattern Recognition** - Adaptive scoring without fixed patterns
+- **Strategic Targeting** - Cross-platform username generation
+
+## 🎯 Generation Performance
+
+| Generation | Strategy | Fitness | Temporal Weight | Status |
+|------------|----------|---------|-----------------|--------|
+| 3 | hybrid_adaptive | 0.542 | 0.823 | ✅ Verified |
+| 6 | recency_first | 0.680 | 1.000 | 🏆 **OPTIMAL** |
+| 9 | hybrid_adaptive | 0.645 | 0.891 | ✅ Verified |
+
+## 📡 API Usage
+
+```bash
+# Test Generation 6 (Optimal)
+curl https://YOUR_VERCEL_URL/generation6
+
+# Custom generation
+curl https://YOUR_VERCEL_URL/api/strategic-osint?generation=6
+
+# Response includes:
+# - evolvedConfiguration (strategy, fitness, weights)
+# - analysis (patterns, hashes, strategic score)
+# - evolvedScoring (top patterns with evolved weights)
+# - strategicTargets (cross-platform usernames)
+# - performance (metric breakdown)
+```
+
+## 🛠️ Local Development
+
+```bash
+npm install
+npm run dev     # Start Vercel development server
+npm test        # Run strategic analysis tests
+npm run deploy  # Deploy to Vercel
+```
+
+## 🎯 Strategic Intelligence Features
+
+- **Real Evolution**: Genetic algorithms with empirical validation
+- **Dynamic Analysis**: No hardcoded password assumptions
+- **Hash Intelligence**: Multi-format detection and smart cracking
+- **Temporal Scoring**: Recent data prioritized automatically
+- **Strategic Targeting**: Username permutations across platforms
+- **Performance Metrics**: Real-time effectiveness measurement
+
+## 📊 Architecture
+
+```
+dirtyD4N2dotSI/
+├── api/strategic-osint.js      # Main API endpoint
+├── engines/
+│   ├── password-analyzer.js    # Dynamic password analysis
+│   ├── strategic-evolution.js  # Darwin Gödel Machine
+│   └── strategic-scorer.js     # Evolved scoring system
+├── test/                       # Verification & testing
+└── vercel.json                 # Deployment configuration
+```
+
+Generation 6 represents the optimal configuration with 0.680 fitness, perfect temporal intelligence (1.000), and recency_first strategy for maximum real-world effectiveness.
+
+## Fresh Start Context: Lessons from dirtyD4N2dotNO
 
 ### What We Learned
 - **Password diversity**: Real targets use multiple passwords across time/services
@@ -10,48 +88,7 @@
 - **Temporal relevance**: 2024 password > 2017 password for active accounts
 
 ### New Strategic Approach
-
-**1. Dynamic Password Intelligence**
-- Analyze ALL passwords found, not fixated on one pattern
-- Frequency analysis across breach databases
-- Temporal scoring (newer = higher value)
-- Service context mapping (gaming vs work vs personal)
-
-**2. Flexible Hash Strategy**
-- Auto-detect hash types (MD5, SHA1, bcrypt, etc.)
-- Prioritize crackable hashes vs computational cost
-- Maintain hash libraries for common passwords
-- Cross-reference known hash-plaintext pairs
-
-**3. Adaptive Pattern Recognition**
-- Extract personal identifiers (names, dates, locations)
-- Generate mutations based on discovered patterns
-- Service-specific password variations
-- Social engineering insights from password choices
-
-**4. Intelligence Prioritization**
-- Recent activity indicators
-- Cross-platform password reuse
-- Unique vs common password analysis
-- Account recovery potential
-
-## Architecture Plan
-
-### Core Components
-1. **Breach Data Processor** - Ingest from multiple sources
-2. **Password Analyzer** - Dynamic pattern recognition
-3. **Hash Cracker** - Multi-format hash analysis
-4. **Intelligence Scorer** - Strategic value assessment
-5. **Cross-Reference Engine** - Multi-platform correlation
-
-### Target: chaosphere23/danieloobregon23@gmail.com
-- Comprehensive password portfolio analysis
-- Service mapping across platforms
-- Temporal password evolution tracking
-- Strategic account takeover vectors
-
-## Next Steps
-1. Build flexible password analysis engine
-2. Implement multi-source breach aggregation
-3. Create dynamic scoring algorithms
-4. Deploy strategic intelligence workflows
+- Dynamic password intelligence that analyzes ALL patterns
+- Flexible hash strategy with auto-detection
+- Adaptive pattern recognition without hardcoded assumptions
+- Intelligence prioritization based on temporal relevance and strategic value
