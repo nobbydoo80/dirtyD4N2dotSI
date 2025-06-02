@@ -623,6 +623,109 @@ function calculatePasswordStrength(password) {
   return 'Weak';
 }
 
+function analyzeUsernamePatterns(socialProfiles) {
+  const patterns = [];
+  
+  socialProfiles.forEach(profile => {
+    const analysis = {
+      platform: profile.platform,
+      username: profile.username,
+      consistency: calculateUsernameConsistency(profile.username),
+      pattern: extractUsernamePattern(profile.username),
+      publicInfo: {
+        name: profile.name,
+        email: profile.email,
+        location: profile.location,
+        company: profile.company
+      }
+    };
+    
+    patterns.push(analysis);
+  });
+  
+  return patterns;
+}
+
+function calculateUsernameConsistency(username) {
+  // Simple consistency scoring
+  const hasNumbers = /\d/.test(username);
+  const hasUnderscore = /_/.test(username);
+  const hasDots = /\./.test(username);
+  const length = username.length;
+  
+  return {
+    hasNumbers,
+    hasUnderscore,
+    hasDots,
+    length,
+    complexity: (hasNumbers ? 1 : 0) + (hasUnderscore ? 1 : 0) + (hasDots ? 1 : 0)
+  };
+}
+
+function extractUsernamePattern(username) {
+  const baseWord = username.replace(/[0-9_\-.]/g, '').toLowerCase();
+  const numbers = username.match(/\d+/g)?.join('') || '';
+  const separators = username.match(/[_\-.]/g)?.join('') || '';
+  
+  return {
+    baseWord,
+    numbers,
+    separators,
+    structure: username.replace(/[a-zA-Z]/g, 'L').replace(/\d/g, 'D').replace(/[^a-zA-Z\d]/g, 'S')
+  };
+}
+
+function analyzeTemporalPatterns(timeline) {
+  const patterns = [];
+  
+  timeline.forEach((event, index) => {
+    const analysis = {
+      date: event.date,
+      event: event.event,
+      timeGap: index > 0 ? calculateTimeGap(timeline[index - 1].date, event.date) : null,
+      severity: assessEventSeverity(event),
+      trend: index > 0 ? assessTrend(timeline.slice(0, index + 1)) : 'initial'
+    };
+    
+    patterns.push(analysis);
+  });
+  
+  return patterns;
+}
+
+function calculateTimeGap(date1, date2) {
+  const d1 = new Date(date1);
+  const d2 = new Date(date2);
+  const diffTime = Math.abs(d2 - d1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  return {
+    days: diffDays,
+    months: Math.round(diffDays / 30),
+    years: Math.round(diffDays / 365)
+  };
+}
+
+function assessEventSeverity(event) {
+  if (event.pwnCount && event.pwnCount > 1000000) return 'HIGH';
+  if (event.pwnCount && event.pwnCount > 100000) return 'MEDIUM';
+  return 'LOW';
+}
+
+function assessTrend(timeline) {
+  if (timeline.length < 2) return 'insufficient_data';
+  
+  const recentEvents = timeline.filter(event => {
+    const eventDate = new Date(event.date);
+    const oneYearAgo = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000);
+    return eventDate > oneYearAgo;
+  });
+  
+  if (recentEvents.length > timeline.length * 0.5) return 'increasing';
+  if (recentEvents.length === 0) return 'dormant';
+  return 'stable';
+}
+
 function generateRealStrategicTargets(email, breachData, patterns) {
   const targets = { high: [], medium: [], low: [] };
   
