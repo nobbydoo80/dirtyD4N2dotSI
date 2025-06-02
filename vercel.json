@@ -1,27 +1,21 @@
 {
   "functions": {
-    "api/strategic-osint-standalone.js": {
+    "api/index.js": {
       "maxDuration": 60
     }
   },
   "routes": [
     {
-      "src": "/api/strategic-osint",
-      "dest": "/api/strategic-osint-standalone.js"
-    },
-    {
       "src": "/generation3",
-      "dest": "/api/strategic-osint-standalone.js?generation=3"
+      "dest": "/api/index.js?generation=3"
     },
     {
       "src": "/generation6", 
-      "dest": "/api/strategic-osint-standalone.js?generation=6"
+      "dest": "/api/index.js?generation=6"
     },
     {
       "src": "/generation9",
-      "dest": "/api/strategic-osint-standalone.js?generation=9"
+      "dest": "/api/index.js?generation=9"
     }
-  ],
-  "buildCommand": "echo 'No build needed'",
-  "outputDirectory": "."
+  ]
 }
